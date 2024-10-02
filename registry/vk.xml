@@ -5333,6 +5333,9 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <member optional="true">const <type>void</type>*                         <name>pNext</name></member>
             <member><type>VkPerformanceConfigurationTypeINTEL</type> <name>type</name></member>
         </type>
+        <type category="struct" name="vkTestFrameworkDispatcherConfigurationINTEL" >
+            <member len="null-terminated">const <type>char</type>*  <name>functionName</name></member>
+        </type>
         <type category="struct" name="VkPhysicalDeviceShaderClockFeaturesKHR" structextends="VkPhysicalDeviceFeatures2,VkDeviceCreateInfo">
             <member values="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR"><type>VkStructureType</type> <name>sType</name></member>
             <member optional="true"><type>void</type>*                               <name>pNext</name></member>
