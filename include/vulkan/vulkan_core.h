@@ -16153,6 +16153,10 @@ typedef VkPhysicalDevicePipelineCreationCacheControlFeatures VkPhysicalDevicePip
 #define VK_INTEL_TEST_FRAMEWORK_SUPPORT 1
 #define VK_INTEL_TEST_FRAMEWORK_SUPPORT_SPEC_VERSION 2
 #define VK_INTEL_TEST_FRAMEWORK_SUPPORT_EXTENSION_NAME "VK_INTEL_TEST_FRAMEWORK_SUPPORT"
+typedef struct vkTestFrameworkDispatcherConfigurationINTEL {
+    const char*    functionName;
+} vkTestFrameworkDispatcherConfigurationINTEL;
+
 typedef void (VKAPI_PTR *PFN_vkTestFrameworkDispatcherINTEL)(VkDevice device, vkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
 
 #ifndef VK_NO_PROTOTYPES
