@@ -16149,6 +16149,30 @@ typedef VkPhysicalDevicePipelineCreationCacheControlFeatures VkPhysicalDevicePip
 
 
 
+// VK_INTEL_TEST_FRAMEWORK_SUPPORT is a preprocessor guard. Do not pass it to API calls.
+#define VK_INTEL_TEST_FRAMEWORK_SUPPORT 1
+#define VK_INTEL_TEST_FRAMEWORK_SUPPORT_SPEC_VERSION 2
+#define VK_INTEL_TEST_FRAMEWORK_SUPPORT_EXTENSION_NAME "VK_INTEL_TEST_FRAMEWORK_SUPPORT"
+
+typedef enum vkTestFrameworkDispatcherFunctionINTEL {
+    VK_TESTFRAMEWORK_FUNCTION_0 = 0,
+    VK_TESTFRAMEWORK_FUNCTION_1 = 1,
+    VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_MAX_ENUM_INTEL = 0x7FFFFFFF
+} vkTestFrameworkDispatcherFunctionINTEL;
+typedef struct vkTestFrameworkDispatcherConfigurationINTEL {
+    vkTestFrameworkDispatcherFunctionINTEL    function;
+    const void*                               data;
+} vkTestFrameworkDispatcherConfigurationINTEL;
+
+typedef void (VKAPI_PTR *PFN_vkTestFrameworkDispatcherINTEL)(VkDevice device, vkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
+
+#ifndef VK_NO_PROTOTYPES
+VKAPI_ATTR void VKAPI_CALL vkTestFrameworkDispatcherINTEL(
+    VkDevice                                    device,
+    vkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
+#endif
+
+
 // VK_NV_device_diagnostics_config is a preprocessor guard. Do not pass it to API calls.
 #define VK_NV_device_diagnostics_config 1
 #define VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION 2

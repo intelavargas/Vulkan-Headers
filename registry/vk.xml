@@ -739,6 +739,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
         <type name="VkPerformanceOverrideTypeINTEL" category="enum"/>
         <type name="VkPerformanceParameterTypeINTEL" category="enum"/>
         <type name="VkPerformanceValueTypeINTEL" category="enum"/>
+        <type name="vkTestFrameworkDispatcherFunctionINTEL" category="enum"/>
         <type name="VkLineRasterizationModeKHR" category="enum"/>
         <type name="VkLineRasterizationModeEXT" category="enum" alias="VkLineRasterizationModeKHR"/>
         <type name="VkShaderModuleCreateFlagBits" category="enum"/>
@@ -5332,6 +5333,10 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <member values="VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL"><type>VkStructureType</type> <name>sType</name></member>
             <member optional="true">const <type>void</type>*                         <name>pNext</name></member>
             <member><type>VkPerformanceConfigurationTypeINTEL</type> <name>type</name></member>
+        </type>
+        <type category="struct" name="vkTestFrameworkDispatcherConfigurationINTEL" >
+            <member><type>vkTestFrameworkDispatcherFunctionINTEL</type> <name>function</name></member>
+            <member optional="true">const <type>void</type>*         <name>data</name></member>
         </type>
         <type category="struct" name="VkPhysicalDeviceShaderClockFeaturesKHR" structextends="VkPhysicalDeviceFeatures2,VkDeviceCreateInfo">
             <member values="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR"><type>VkStructureType</type> <name>sType</name></member>
@@ -10824,6 +10829,10 @@ typedef void* <name>MTLSharedEvent_id</name>;
     <enums name="VkPerformanceConfigurationTypeINTEL" type="enum">
         <enum value="0"     name="VK_PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL"/>
     </enums>
+    <enums name="vkTestFrameworkDispatcherFunctionINTEL" type="enum">
+        <enum value="0"     name="VK_TESTFRAMEWORK_FUNCTION_0"/>
+        <enum value="1"     name="VK_TESTFRAMEWORK_FUNCTION_1"/>
+    </enums>
     <enums name="VkQueryPoolSamplingModeINTEL" type="enum">
         <enum value="0"     name="VK_QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL"/>
     </enums>
@@ -14475,6 +14484,11 @@ typedef void* <name>MTLSharedEvent_id</name>;
         <command>
             <proto><type>void</type> <name>vkUninitializePerformanceApiINTEL</name></proto>
             <param><type>VkDevice</type> <name>device</name></param>
+        </command>
+        <command>
+            <proto><type>void</type> <name>vkTestFrameworkDispatcherINTEL</name></proto>
+            <param><type>VkDevice</type> <name>device</name></param>
+            <param><type>vkTestFrameworkDispatcherConfigurationINTEL</type>* <name>testFrameworkDispatcherConfiguration</name></param>
         </command>
         <command queues="graphics,compute,transfer" renderpass="both" cmdbufferlevel="primary,secondary" successcodes="VK_SUCCESS" errorcodes="VK_ERROR_TOO_MANY_OBJECTS,VK_ERROR_OUT_OF_HOST_MEMORY" tasks="action,state">
             <proto><type>VkResult</type> <name>vkCmdSetPerformanceMarkerINTEL</name></proto>
@@ -20490,6 +20504,15 @@ typedef void* <name>MTLSharedEvent_id</name>;
                 <enum value="&quot;VK_INTEL_shader_integer_functions2&quot;" name="VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_EXTENSION_NAME"/>
                 <enum offset="0" extends="VkStructureType"              name="VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL"/>
                 <type name="VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL"/>
+            </require>
+        </extension>
+        <extension name="VK_INTEL_TEST_FRAMEWORK_SUPPORT" number="300" type="device" author="INTEL" contact="Andres Vargas @avargas" specialuse="devtools" supported="vulkan">
+            <require>
+                <enum value="2"                                         name="VK_INTEL_TEST_FRAMEWORK_SUPPORT_SPEC_VERSION"/>
+                <enum value="&quot;VK_INTEL_TEST_FRAMEWORK_SUPPORT&quot;"           name="VK_INTEL_TEST_FRAMEWORK_SUPPORT_EXTENSION_NAME"/>
+                <type name="vkTestFrameworkDispatcherFunctionINTEL"/>
+                <type name="vkTestFrameworkDispatcherConfigurationINTEL"/>
+                <command name="vkTestFrameworkDispatcherINTEL"/>
             </require>
         </extension>
         <extension name="VK_INTEL_performance_query" number="211" type="device" author="INTEL" contact="Lionel Landwerlin @llandwerlin" specialuse="devtools" supported="vulkan">
