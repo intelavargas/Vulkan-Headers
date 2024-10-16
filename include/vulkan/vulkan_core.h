@@ -16154,22 +16154,22 @@ typedef VkPhysicalDevicePipelineCreationCacheControlFeatures VkPhysicalDevicePip
 #define VK_INTEL_TEST_FRAMEWORK_SUPPORT_SPEC_VERSION 2
 #define VK_INTEL_TEST_FRAMEWORK_SUPPORT_EXTENSION_NAME "VK_INTEL_TEST_FRAMEWORK_SUPPORT"
 
-typedef enum vkTestFrameworkDispatcherFunctionINTEL {
+typedef enum VkTestFrameworkDispatcherFunctionINTEL {
     VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_0 = 0,
     VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_1 = 1,
     VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_MAX_ENUM_INTEL = 0x7FFFFFFF
-} vkTestFrameworkDispatcherFunctionINTEL;
-typedef struct vkTestFrameworkDispatcherConfigurationINTEL {
-    vkTestFrameworkDispatcherFunctionINTEL    function;
+} VkTestFrameworkDispatcherFunctionINTEL;
+typedef struct VkTestFrameworkDispatcherConfigurationINTEL {
+    VkTestFrameworkDispatcherFunctionINTEL    function;
     const void*                               data;
-} vkTestFrameworkDispatcherConfigurationINTEL;
+} VkTestFrameworkDispatcherConfigurationINTEL;
 
-typedef void (VKAPI_PTR *PFN_vkTestFrameworkDispatcherINTEL)(VkDevice device, vkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
+typedef void (VKAPI_PTR *PFN_vkTestFrameworkDispatcherINTEL)(VkDevice device, VkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
 
 #ifndef VK_NO_PROTOTYPES
 VKAPI_ATTR void VKAPI_CALL vkTestFrameworkDispatcherINTEL(
     VkDevice                                    device,
-    vkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
+    VkTestFrameworkDispatcherConfigurationINTEL* testFrameworkDispatcherConfiguration);
 #endif
 
 

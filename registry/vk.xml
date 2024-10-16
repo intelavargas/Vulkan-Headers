@@ -739,7 +739,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
         <type name="VkPerformanceOverrideTypeINTEL" category="enum"/>
         <type name="VkPerformanceParameterTypeINTEL" category="enum"/>
         <type name="VkPerformanceValueTypeINTEL" category="enum"/>
-        <type name="vkTestFrameworkDispatcherFunctionINTEL" category="enum"/>
+        <type name="VkTestFrameworkDispatcherFunctionINTEL" category="enum"/>
         <type name="VkLineRasterizationModeKHR" category="enum"/>
         <type name="VkLineRasterizationModeEXT" category="enum" alias="VkLineRasterizationModeKHR"/>
         <type name="VkShaderModuleCreateFlagBits" category="enum"/>
@@ -5334,8 +5334,8 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <member optional="true">const <type>void</type>*                         <name>pNext</name></member>
             <member><type>VkPerformanceConfigurationTypeINTEL</type> <name>type</name></member>
         </type>
-        <type category="struct" name="vkTestFrameworkDispatcherConfigurationINTEL" >
-            <member><type>vkTestFrameworkDispatcherFunctionINTEL</type> <name>function</name></member>
+        <type category="struct" name="VkTestFrameworkDispatcherConfigurationINTEL" >
+            <member><type>VkTestFrameworkDispatcherFunctionINTEL</type> <name>function</name></member>
             <member optional="true">const <type>void</type>*         <name>data</name></member>
         </type>
         <type category="struct" name="VkPhysicalDeviceShaderClockFeaturesKHR" structextends="VkPhysicalDeviceFeatures2,VkDeviceCreateInfo">
@@ -10829,7 +10829,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
     <enums name="VkPerformanceConfigurationTypeINTEL" type="enum">
         <enum value="0"     name="VK_PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL"/>
     </enums>
-    <enums name="vkTestFrameworkDispatcherFunctionINTEL" type="enum">
+    <enums name="VkTestFrameworkDispatcherFunctionINTEL" type="enum">
         <enum value="0"     name="VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_0"/>
         <enum value="1"     name="VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_1"/>
     </enums>
@@ -14488,7 +14488,7 @@ typedef void* <name>MTLSharedEvent_id</name>;
         <command>
             <proto><type>void</type> <name>vkTestFrameworkDispatcherINTEL</name></proto>
             <param><type>VkDevice</type> <name>device</name></param>
-            <param><type>vkTestFrameworkDispatcherConfigurationINTEL</type>* <name>testFrameworkDispatcherConfiguration</name></param>
+            <param><type>VkTestFrameworkDispatcherConfigurationINTEL</type>* <name>testFrameworkDispatcherConfiguration</name></param>
         </command>
         <command queues="graphics,compute,transfer" renderpass="both" cmdbufferlevel="primary,secondary" successcodes="VK_SUCCESS" errorcodes="VK_ERROR_TOO_MANY_OBJECTS,VK_ERROR_OUT_OF_HOST_MEMORY" tasks="action,state">
             <proto><type>VkResult</type> <name>vkCmdSetPerformanceMarkerINTEL</name></proto>
@@ -20510,8 +20510,8 @@ typedef void* <name>MTLSharedEvent_id</name>;
             <require>
                 <enum value="2"                                         name="VK_INTEL_TEST_FRAMEWORK_SUPPORT_SPEC_VERSION"/>
                 <enum value="&quot;VK_INTEL_TEST_FRAMEWORK_SUPPORT&quot;"           name="VK_INTEL_TEST_FRAMEWORK_SUPPORT_EXTENSION_NAME"/>
-                <type name="vkTestFrameworkDispatcherFunctionINTEL"/>
-                <type name="vkTestFrameworkDispatcherConfigurationINTEL"/>
+                <type name="VkTestFrameworkDispatcherFunctionINTEL"/>
+                <type name="VkTestFrameworkDispatcherConfigurationINTEL"/>
                 <command name="vkTestFrameworkDispatcherINTEL"/>
             </require>
         </extension>
