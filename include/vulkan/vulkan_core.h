@@ -16155,8 +16155,8 @@ typedef VkPhysicalDevicePipelineCreationCacheControlFeatures VkPhysicalDevicePip
 #define VK_INTEL_TEST_FRAMEWORK_SUPPORT_EXTENSION_NAME "VK_INTEL_TEST_FRAMEWORK_SUPPORT"
 
 typedef enum vkTestFrameworkDispatcherFunctionINTEL {
-    VK_TESTFRAMEWORK_FUNCTION_0 = 0,
-    VK_TESTFRAMEWORK_FUNCTION_1 = 1,
+    VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION__0 = 0,
+    VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION__1 = 1,
     VK_TEST_FRAMEWORK_DISPATCHER_FUNCTION_MAX_ENUM_INTEL = 0x7FFFFFFF
 } vkTestFrameworkDispatcherFunctionINTEL;
 typedef struct vkTestFrameworkDispatcherConfigurationINTEL {
